@@ -1,0 +1,51 @@
+<div class="media" data-id={{id}} data-genre={{genreData}}>
+    <img class="covers" src="{{cover}}" alt="">
+
+    <div class="media_info">
+
+        <button class="bookmark" type="button">
+        <i class="fas fa-bookmark"></i>
+        </button>
+
+        <div>
+        <h3 class="title">{{title}} ({{year}})</h3>
+        <span class="sorting_title">
+            <span>
+            Titolo originale:
+            </span>
+            <span>
+            {{originalTitle}}
+            </span>
+        </span>
+        </div>
+        <div class="language">
+        <span>
+            Lingua originale:
+        </span>
+        <img class="flags" src="{{flag}}" alt="">
+        </div>
+        <div class="genre">
+        <span>Genere: </span>
+        <span>{{genres}}</span>
+        </div>
+        <p class="overview">
+        <span>
+            Overview
+        </span>
+        <span>
+            {{overview}}
+        </span>
+        </p>
+        <div class="score">
+        <span>
+            SCORE
+        </span>
+        <span>
+            {{{score}}}
+        </span>
+        </div>
+        <div class="category">
+        {{category}}
+        </div>
+    </div>
+</div>

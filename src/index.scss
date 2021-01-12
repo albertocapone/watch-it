@@ -1,0 +1,513 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration-line: none;
+  color: inherit;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 75px;
+}
+
+button {
+  -webkit-appearance: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 8, 0, 1);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+/*  */
+
+
+.headbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-right: 35px;
+  width: 100%;
+  height: 75px;
+  background-color: #010101;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.headbar #logo {
+  flex: 0 2 250px;
+  color: rgba(255, 8, 0, 1);
+  font-size: 38px;
+  font-weight: bolder;
+  text-shadow: 1px 1px hsl(0, 0%, 85%),
+    1px 2px hsl(0, 0%, 80%),
+    1px 3px hsl(0, 0%, 75%),
+    1px 4px hsl(0, 0%, 70%),
+    1px 5px hsl(0, 0%, 65%),
+    1px 6px 10px rgba(255, 0, 0, 0.9);
+  letter-spacing: 2px;
+}
+
+#logo>div {
+  transform: translateY(25%);
+}
+
+.headbar_nav {
+  list-style-type: none;
+  flex: 0 1 390px;
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: rgba(255, 8, 0, 1);
+}
+
+.headbar_nav a, .headbar_nav span {
+  transition: all .4s ease-out;
+}
+
+.headbar_nav a:hover,
+.headbar_nav a.active,
+.headbar_nav span:hover,
+.headbar_nav span.active {
+  text-shadow: 0 0 .1em, 0 0 .3em;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+#searchBar {
+  position: relative;
+  flex-basis: 220px;
+  height: 25px;
+  margin-top: 14px;
+}
+
+.headbar input {
+  width: 100%;
+  height: 100%;
+  padding: 0 25px 0 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 900;
+  color: gray;
+}
+
+.headbar input:focus {
+  outline: none !important;
+  border:1px solid rgba(255, 8, 0, 1);
+  box-shadow: 0 0 10px #719ECE;
+}
+
+#go {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  color: rgba(255, 8, 0, 1);
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  background-color: white;
+}
+
+#media_box {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 35px);
+  padding: 10px 20px 20px;
+  overflow-y: auto;
+  background-image: linear-gradient(-120deg, #0e0e0e, #272222);
+  display: flex;
+  flex-direction: column;
+  scrollbar-color: rgba(255, 8, 0, 1) rgba(0, 0, 0, 0.9);
+  scrollbar-width: thin;
+}
+
+#media_box > .container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#media_box > .container > h2 {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 25px;
+  color: rgba(255, 8, 0, 1);
+  text-shadow: 1px 1px hsl(0, 0%, 85%),
+  1px 2px hsl(0, 0%, 80%),
+  1px 3px hsl(0, 0%, 75%),
+  1px 4px 20px rgba(255, 0, 0, 0.9);
+  letter-spacing: 4px;
+}
+
+#movies, 
+#tv-series, 
+#favourites, 
+#search {
+  width: 100%;
+  min-height: 360px;
+  padding: 10px;
+  margin-top: 20px;
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+
+.pagination {
+  position: absolute;
+  top: 32px;
+  right: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 115px;
+}
+
+.pagination button {
+  font-size: 23px;
+  cursor: pointer;
+  border: none;
+  color: rgba(255, 8, 0, 1);
+  text-shadow: 1px 1px hsl(0, 0%, 85%), 1px 2px hsl(0, 0%, 80%), 1px 3px hsl(0, 0%, 75%), 1px 4px 20px rgba(255, 0, 0, 0.9);
+  background-color: inherit;
+}
+
+.page_index {
+  width: 80px;
+  font-size: 15px;
+  color: rgba(255, 8, 0, 1);
+  text-shadow: 0 0 .1em, 0 0 .3em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[name=page] {
+  width: 40%;
+  padding: 0 2px;
+  text-align: end;
+  font-size: inherit;
+  color: inherit;
+  text-shadow: inherit;
+  border: none;
+  background-color: inherit;
+}
+
+input[name="page"]:focus {
+  outline-color: rgba(255, 8, 0, 1);
+  outline-width: 3px;
+  /* outline-style: outset; */
+}
+
+.pagination:hover input[name=page] {
+  border: 1px solid rgba(255, 8, 0, 1);
+  border-radius: 5px;
+}
+
+
+.media {
+  position: relative;
+  min-width: calc(100% / 3 - 10px);
+  max-width: calc(100% / 3 - 10px);
+  margin: 5px 5px;
+  border-radius: 5px;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.media:hover > .media_info {
+  display: flex;
+}
+
+.media_info {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 8px 10px 30px;
+  border-radius: 5px;
+  background-color: #010101;
+  color: white;
+  z-index: 5;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.title {
+  color: rgba(255, 8, 0, 1);
+  flex: 0 1.5;
+  font-size: 25px;
+}
+
+.sorting_title > span:first-child,
+.overview>span:first-child,
+.language > span,
+.score > span:first-child,
+.category,
+.year,
+.genre > span:first-child {
+  color: gold;
+}
+
+.overview>span:first-child,
+.score>span:first-child {
+  display: block;
+}
+
+.sorting_title {
+  flex: 0 0.5;
+  font-size: 11px;
+}
+
+.language {
+  flex: 0 0.5;
+  font-size: 10px;
+}
+
+.genre {
+  font-size: 10px;
+}
+
+.overview {
+  flex: 0 2;
+  font-size: 12px;
+  padding: 10px 0;
+  flex-basis: 50%;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.score{
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-size: 10px;
+}
+
+.category {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 8px;
+}
+
+.media:hover {
+  position: relative;
+  box-shadow: 1px 1px 10px 15px rgba(255, 0, 0, 0.4);
+  transform: scale(0.9);
+}
+
+.media:hover::after {
+  position: absolute;
+  content: "";
+  width: 110%;
+  height: 110%;
+  top: 0;
+  left: 0;
+  transform: translate(-5%, -5%);
+}
+
+img.covers {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+img.flags {
+  vertical-align: middle;
+}
+
+.flags[src=""] {
+  display: none;
+}
+
+.fa-star {
+  color: rgba(255, 8, 0, 1);
+}
+
+.bookmark {
+  align-self: flex-end;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.bookmark:hover {
+  cursor: pointer;
+}
+
+.bookmark.active {
+  color: red;
+}
+
+li:last-child {
+  position: relative;
+}
+
+li>select {
+  display: none;
+  position: absolute;
+  border: 1px solid red;
+  top: 18px;
+  right: 0;
+  min-width: 50px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: inherit;
+  color: inherit;
+  overflow-y: hidden;
+}
+
+li>select:focus {
+  background-color: #010101;
+  color: rgba(255, 8, 0, 1);
+}
+
+footer {
+  width: 100%;
+  height: 35px;
+  padding: 0 25px;
+  background-color: #010101;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+footer h6 {
+  color: rgba(255, 8, 0, 1);
+  letter-spacing: 2px;
+}
+
+#myPortfolio {
+  font-weight: 100;
+  font-size: 8px;
+}
+
+#myPortfolio:hover {
+  color: gold;
+}
+
+
+@media only screen and (min-width:700px) and (max-width:900px) {
+  .headbar>ul {
+    display: none;
+  }
+
+  #movies, 
+  #tv-series, 
+  #favourites, 
+  #search {
+    min-height: 300px;
+  }
+
+  .media {
+    min-width: calc(100% / 3 - 10px);
+    margin: 5px 5px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  body {
+    font-size: 10px;
+  }
+
+  .headbar {
+    padding: 7px 15px;
+  }
+
+  .headbar #logo {
+    font-size: 30px;
+  }
+
+  .headbar>ul {
+    display: none;
+  }
+
+  #searchBar  {
+    flex-basis: 170px;
+  }
+
+  .headbar input {
+    font-size: 8px;
+  }
+
+  #movies, 
+  #tv-series, 
+  #favourites, 
+  #search {
+    min-height: 280px;
+  }
+
+  .media_info {
+    justify-content: space-around;
+  }
+
+  .media {
+    min-width: calc(100% / 2 - 10px);
+    margin: 5px 5px;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .sorting_title, .language {
+    display: none;
+  }
+
+  .overview {
+    font-size: 10px;
+  }
+
+  .score {
+    font-size: 9px;
+  }
+
+  .category {
+    font-size: 6px;
+  }
+
+  #myPortfolio {
+    font-weight: 100;
+    font-size: 6px;
+  }
+}
